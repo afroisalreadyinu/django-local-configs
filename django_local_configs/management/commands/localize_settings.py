@@ -67,8 +67,9 @@ class Command(BaseCommand, CommonMixin):
                     db_braces -= 1
             else:
                 other_lines.append(line)
-
-        with open(os.path.join(self.base, 'new_settings.py'), 'w') as new_settings:
+        new_settings_path = os.path.join(self.base,
+                                         'new_settings.py')
+        with open(new_settings_path, 'w') as new_settings:
             new_settings.write(CODE)
             new_settings.write(''.join(other_lines))
         context = InteractiveInterpreter()
@@ -87,3 +88,8 @@ class Command(BaseCommand, CommonMixin):
             config.set('database', x, context.locals['DATABASES']['default'][x])
         with open(self.default_config_path, 'w') as config_file:
             config.write(config_file)
+        #and now switch the configs
+        shutil.move(self.settings_path,
+                    os.path.join(self.base, 'old_settings.py'))
+        shutil.move(new_settings_path,
+                    self.settings_path)
