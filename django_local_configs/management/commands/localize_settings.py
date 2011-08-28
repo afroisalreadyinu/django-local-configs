@@ -3,9 +3,7 @@ import shutil
 from code import InteractiveInterpreter
 from ConfigParser import RawConfigParser
 from django.core.management.base import BaseCommand, CommandError
-from .create_local import (CommonMixin,
-                           CONFIG_DIR_NAME,
-                           DEFAULT_CONFIG_NAME)
+from . import CONFIG_DIR_NAME, DEFAULT_CONFIG_NAME, CommonMixin
 
 CODE = """
 from ConfigParser import RawConfigParser
