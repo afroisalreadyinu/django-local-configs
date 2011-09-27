@@ -14,6 +14,6 @@ setup(
     author = "Afrois Alreadyinu",
     author_email = "afroisalreadyinu@gmail.com",
     description = ("Adds a command to manage.py for creating local configs."),
-    install_requires = ['django==1.3'],
+    install_requires = ['django'],
     packages=find_packages(),
 )
