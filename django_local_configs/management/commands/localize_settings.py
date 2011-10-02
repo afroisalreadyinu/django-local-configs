@@ -9,11 +9,13 @@ from . import CONFIG_DIR_NAME, DEFAULT_CONFIG_NAME, CommonMixin
 CODE = """
 from ConfigParser import RawConfigParser
 import os
+import getpass
 
 def get_config():
     root = os.path.dirname(__file__)
+    username = getpass.getuser() or 'nouser'
     path = os.path.join(root, 'configs',
-                        "%s_%s.cfg" % (os.uname()[1], os.getenv('USERNAME') or 'nouser'))
+                        "%s_%s.cfg" % (os.uname()[1], username))
     if not os.path.exists(path):
         path = os.path.join(root,
                             'configs',
