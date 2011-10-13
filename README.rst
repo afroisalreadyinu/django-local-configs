@@ -1,3 +1,10 @@
+====================
+django_local_configs
+====================
+
+Overview
+========
+
 django_local_configs helps you work on a project on different
 computers and as different users by making certain configuration
 options dependent on computer name and user name. Two commands added
@@ -7,12 +14,18 @@ django project. These options are then read into the settings.py
 file. This is something I did with every django prokect anyway, so I
 decided to moved it to a module of its own.
 
-Quick howto: Add django_local_configs to your installed apps, run the
+Quick howto
+===========
+
+Add django_local_configs to your installed apps, run the
 command './manage.py localize_settings' in the project root, then run
 './manage.py create_local_config' each time you're in a new
 environment. This second command will create a copy of a default
 config, already populated with the values in settings.py when you ran
 the first command.
+
+Commands
+========
 
 localize_settings, when run from a directory in which there is a
 settings.py file, does two things. It modifies the contents of the
