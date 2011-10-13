@@ -14,12 +14,9 @@ import getpass
 def get_config():
     root = os.path.dirname(__file__)
     username = getpass.getuser() or 'nouser'
-    path = os.path.join(root, 'configs',
-                        "%s_%s.cfg" % (os.uname()[1], username))
+    path = os.path.join(root, 'configs',"%s_%s.cfg" % (os.uname()[1], username))
     if not os.path.exists(path):
-        path = os.path.join(root,
-                            'configs',
-                            "default.cfg")
+        path = os.path.join(root, 'configs',"default.cfg")
     config = RawConfigParser()
     config.read(path)
     return config
