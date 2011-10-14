@@ -11,7 +11,7 @@ options dependent on computer name and user name. Two commands added
 to manage.py can be used to move config options which are different on
 various development environments to a directory in the base of a
 django project. These options are then read into the settings.py
-file. This is something I did with every django prokect anyway, so I
+file. This is something I did with every django project anyway, so I
 decided to moved it to a module of its own.
 
 Quick howto
@@ -27,7 +27,7 @@ the first command.
 Commands
 ========
 
-localize_settings, when run from a directory in which there is a
+**localize_settings**, when run from a directory in which there is a
 settings.py file, does two things. It modifies the contents of the
 settings.py file, removing the configs for database and debug and
 adding small amount of code to the beginning which import the removed
@@ -37,7 +37,7 @@ second thing it does is to create a directory called configs, and add
 a default config file named default.cfg. The configuration values
 removed from settings.py are added into this config file.
 
-create_local_config creates a new config file in the configs
+**create_local_config** creates a new config file in the configs
 directory. The name of this config file is based on the uname of the
 computer and the user login name. If the computer is named comp, and
 the user linuxuser, the config file is named comp_linuxuser.cfg. The
